@@ -1,0 +1,16 @@
+{
+  "name": "@rammbulanz/gulp-tools",
+  "version": "0.0.1",
+  "main": "lib/index.js",
+  "author": "Rammbulanz <iwashier@gmail.com>",
+  "license": "MIT",
+  "files": [
+    "lib"
+  ],
+  "devDependencies": {
+    "@types/node": "^10.12.18",
+    "@types/through2": "^2.0.34",
+    "gulp": "^4.0.0",
+    "through2": "^3.0.0"
+  }
+}
