@@ -12,5 +12,9 @@
     "@types/through2": "^2.0.34",
     "gulp": "^4.0.0",
     "through2": "^3.0.0"
+  },
+  "scripts": {
+		"deploy:alpha": "npm publish --tag alpha --access public",
+		"deploy:beta": "npm publish --tag beta --access public"
   }
 }
