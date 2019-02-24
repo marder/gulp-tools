@@ -1,18 +1,18 @@
 import * as through2 from 'through2';
 import { Transform } from 'stream';
 
-/**
- * 
- * @param {File} file 
- * @param {string} enc 
- * @param {Function} cb 
- */
-function litStyle(this: Transform, file: any, enc: string, callback: through2.TransformCallback) {
+export type LitStyleTemplateOptions = {
+    extension: '.js' | '.ts'
+}
+
+export default (options?: LitStyleTemplateOptions) => through2.obj((file: any, enc: string, callback: through2.TransformCallback) => {
+
+    const newExtension = options && options.extension ? options.extension : '.js';
     const code = file.contents.toString(enc);
 
     file.contents = Buffer.from(`
-        import { html } from 'lit-html';
-        export default html\`
+        import { css } from 'lit-element';
+        export default css\`
             <style>
                 ${code}
             </style>
@@ -20,10 +20,9 @@ function litStyle(this: Transform, file: any, enc: string, callback: through2.Tr
     `);
 
     file.history.push(
-        file.history[0] + ".js"
+        file.history[0] + newExtension
     );
 
     return callback(null, file);
-}
 
-export default () => through2.obj(litStyle);
+});
