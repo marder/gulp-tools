@@ -13,9 +13,7 @@ export default (options?: LitStyleTemplateOptions) => through2.obj((file: any, e
     file.contents = Buffer.from(`
         import { css } from 'lit-element';
         export default css\`
-            <style>
-                ${code}
-            </style>
+            ${code}
         \`;
     `);
 
