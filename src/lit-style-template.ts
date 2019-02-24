@@ -1,5 +1,4 @@
 import * as through2 from 'through2';
-import { Transform } from 'stream';
 
 export type LitStyleTemplateOptions = {
     extension: '.js' | '.ts'
