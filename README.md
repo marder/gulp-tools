@@ -13,11 +13,11 @@ yarn add --dev @rammbulanz/gulp-tools
 
 ```javascript
 
-const { litHtml, litCss } = require("@rammbulanz/gulp-tools");
+const { litHtml, litStyle } = require("@rammbulanz/gulp-tools");
 
 gulp.task("build:css", function () {
     return gulp.src('*.css')
-        .pipe(litCss())
+        .pipe(litStyle())
         .pipe(gulp.dest('.'));
 });
 
